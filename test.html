@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Main Page</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script language="javascript" src="test.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+function startTime()
+{
+var today=new Date();
+/*var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();*/
+t=today.toLocaleTimeString();
+// add a zero in front of numbers<10
+/*t=checkTime(t);*/
+/*s=checkTime(s);*/
+document.getElementById('txt').innerHTML=t;
+t=setTimeout(function(){startTime()},500);
+}
+/*
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}*/
+</script>
+</head>
+
+<!--===============================================================End of Head=================Start of Body=================================================================-->
+
+<body id="body" onload="divshow(); startTime();">
+<div id="txt"></div>
+<script language="javascript" type="text/javascript">
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and 
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    	// If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = pair[1];
+    	// If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]], pair[1] ];
+      query_string[pair[0]] = arr;
+    	// If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(pair[1]);
+    }
+  } 
+    return query_string;
+} ();
+
+
+
+function divshow(){
+if( QueryString.show == 'true' )
+{
+document.getElementById('id2').style.display='inline';
+document.getElementById('id1').style.display='none';
+}
+else
+{
+document.getElementById('id1').style.display='inline';
+document.getElementById('id2').style.display='none';
+}
+} //hideDiv()
+</script>
+<noscript>
+Your browser does not support JavaScript!
+</noscript>
+<!--===================================================================Table id=1================================================================================================-->
+<div id="id1" class="positionFix"> 
+<table>
+  <form action="test.html?show=true" method="get" name="login">
+    <tr id="td">
+      <td valign="top">UserName : <input name="userName" type="text" onblur="return validateUname()" />
+      </td></tr>
+<tr style="visibility:hidden"><td></td></tr>
+<tr id="td">
+      <td valign="top">Password &nbsp;: <input name="password" type="password" onblur="return validatePwd()" />
+      </td></tr>
+<tr id="td" style="display:none">
+      <td>&nbsp;</td></tr>
+<tr id="td" style="visibility:hidden">      <td><input type="hidden" size="20" name="show" value="true"/></td></tr>
+
+
+      <tr id="td"><td valign="top" >Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input name="email" type="text" onblur="return emailchk()" />
+      </td></tr>
+<tr style="visibility:hidden"><td></td></tr>
+<tr id="td" align="right">      <td ><input name="submit" type="submit" value="Get In...!" onclick="divshow()" /></td>
+    </tr>
+  </form>
+</table></div>
+<!--=================================================================End of Table id=1=======================================================================================-->
+<!--=================================================================Table id=2==============================================================================================-->
+<div id="id2" class="positionFix">
+<table cellspacing="10">
+<caption> <p style="font-size:larger;font-weight:bold;font-style:italic">Simple JavaScript Functions</p></caption>
+<tr style="visibility:hidden"><td></td></tr>
+<tr style="visibility:hidden"><td></td></tr>
+<tr style="visibility:hidden"><td></td></tr>
+  <tr valign="top">
+    <th><a onclick="times()" href="JavaScript:void()" style="text-decoration:none">Times of a given number</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="fullName()" href="JavaScript:void()" style="text-decoration:none">Ur full name using alert</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="numberMath()" href="JavaScript:void()" style="text-decoration:none">Simple Number addition</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="carRandom()" href="JavaScript:void()" style="text-decoration:none">Random car names popup frm array</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="randomNum()" href="JavaScript:void()" style="text-decoration:none">Random Number Between 1 to 200.</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="iceCreamSwitch()" href="JavaScript:void()" style="text-decoration:none">Choose IceCream Using switch</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="iceCreamIfElse()" href="JavaScript:void()" style="text-decoration:none">Choose IceCream Using IfElse</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a onclick="" href="JavaScript:void()" style="text-decoration:none">Lets see what u have submitted...!</a></th>
+  </tr>
+  <tr valign="top">
+    <th><a href="JavaScript:void()" name="close" onclick="close()"><img src="close.jpg" alt="Close_Button" height="32" width="32" /> </a></th>
+  </tr>
+</table></div>
+<!--=================================================================End of Table id=2=======================================================================================-->
+<div id="txt1">
+  <script type="text/javascript" language="javascript">
+ var d=new Date();
+document.write(d.toLocaleDateString()+"<br /><br />");
+</script></div>
+<div id="footer">
+  <script type="text/javascript" language="javascript">
+document.write("This Page was Last Modified on "+document.lastModified);
+</script>
+  <noscript>
+  Your browser does not support JavaScript!
+  </noscript>
+  <br/>
+  <br/>
+  <font>Created By :- Nishant Kumar</font>
+  </div>
+  <div id="txt2">Mail Me Your Queries Reagarding Me...!<br />
+  <a href="mailto:vishu_nishu007@live.in?Subject=Hello%20again" style="text-decoration:blink">HERE
+  </a></div>
+<!--=================================================================End of Document=======================================================================================-->
+</body>
+</html>
